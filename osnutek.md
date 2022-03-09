@@ -1,4 +1,4 @@
-TEHNIČNI PREGLEDI MOTORNIH VOZIL
+# TEHNIČNI PREGLEDI MOTORNIH VOZIL
 
 Člani ekipe : Nejc Frank, Gašper Perovič, Matija Tomažič
 
@@ -20,6 +20,6 @@ Podatki so razdeljeni v 3 vrste:
 - podatki o vseh vozilih, ki opravljajo tehnični pregled
 - podatki vozil ki so bila pri opravljanju tehničnega pregleda uspešna
 - podatki vozil ki so bila pri opravljanju tehničnega pregleda neuspešna
-- 
+
 Vir podatkov: https://podatki.gov.si/dataset/rezultati-tehnicnih-pregledov-motornih-vozil
 
