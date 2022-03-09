@@ -1,4 +1,7 @@
-# TEHNIČNI PREGLEDI MOTORNIH VOZIL
+
+# PODATKOVNO RUDARJENJE - PROJEKT 
+
+## TEHNIČNI PREGLEDI MOTORNIH VOZIL
 
 Člani ekipe : Nejc Frank, Gašper Perovič, Matija Tomažič
 
