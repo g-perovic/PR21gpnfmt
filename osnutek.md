@@ -8,7 +8,7 @@
 Analizirali bomo problem, ki se navezuje na tehnične preglede motornih vozil. Povprašali se bomo po verjetnosti, 
 da vozilo opravi tehnični pregled glede na naslednje dejavnike : starost vozila, znamka vozila, vrsta vozila, vrsta goriva...
 
-Nekaj uprašanj, s katerimi si bomo pomagali pri analizi:
+Nekaj vprašanj, s katerimi si bomo pomagali pri analizi:
 
 - Starost vozila, kjer se problem neizpravnosti vozila najbolj pogosto začne pojavljati.
 - Koliko avtomobilov letno v povprečju opravi tehnični pregled?
