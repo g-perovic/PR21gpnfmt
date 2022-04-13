@@ -57,3 +57,45 @@ podatki = pd.read_csv("Porocilo_o_uspesnosti_TP_1.csv", delimiter=";", low_memor
 
 ### 5. Rezultati
 
+#### - Poizvedba, prikaže število motornih vozil glede na vrsto vozila, izpisano z stolpičnim diagramom. 
+Ker je bilo število osebnih avtomobilov naprimerno večje kot vsi ostali rezultati smo zaradi preglednosti izločili podatke od osebnih vozilih in izpisali le vsa ostala motorna vozila.
+
+```python
+znamka = podatki[['KATEGORIJA_OPIS']]
+znamka = podatki.groupby('KATEGORIJA_OPIS')['ZNAMKA'].count()
+znamka1 = znamka.to_dict()
+
+k = list()
+for key in znamka1:
+    k.append(str(key) + " (" + str(znamka1[key]) + ")" )
+    
+    
+#znamka1.pop('osebni avtomobil')
+fig = plt.figure(figsize=(25,8))
+plt.bar(k,(znamka1.values()), width=0.5)
+plt.xticks(rotation=45)
+plt.title("Število vozil glede na določeno kategorijo", size="30")
+plt.show()
+```
+
+![slika](https://user-images.githubusercontent.com/100125468/163144125-0090c3c8-fb4c-4a5e-b449-75eaeafe186c.png)
+
+<br></br>
+#### - Poizvedba, ki prikazuje 10 izvajalnih enot, pri katerih je bilo največ vozil tehnično brezhibnih.
+
+```python
+narejeno1 = podatki['TEHNICNI_PREGLED_STATUS'].tolist()
+narejeno2 = podatki['IZVAJALNA_ENOTA_OPIS'].tolist()
+narejeno = podatki[podatki["TEHNICNI_PREGLED_STATUS"] == "brezhiben"].groupby("IZVAJALNA_ENOTA_OPIS")["IZVAJALNA_ENOTA_OPIS"].count()
+narejeno = narejeno.to_dict()
+
+dict = {'Name':narejeno.keys(), 'value':(narejeno.values())}
+df = pd.DataFrame(dict)
+df.nlargest(10,"value")
+```
+
+![slika](https://user-images.githubusercontent.com/100125468/163145287-3d24863f-dd8d-4128-8ced-dff00f19e5b2.png)
+
+
+
+
