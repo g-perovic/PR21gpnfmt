@@ -126,7 +126,7 @@ plt.ylabel("Število osebnih avtomobilov")
 plt.title("Število osebnih avtomobilov glede na Znamko")
 plt.show
 ```
-![image](https://user-images.githubusercontent.com/64787664/163146822-6ecdb6b3-87fc-4f04-b17e-0b6d7cb3a3af.png)
+![slika](https://user-images.githubusercontent.com/100125468/163149592-e196cb91-fa9b-4cb8-a1fa-22d7c3cee296.png)
 
 Kot je iz grafa razvidno imamo največ osebnih vozil znamke Renault in nato Volkswagen. Za prvimi dvemi pa imamo še znamke Opel, Peugeot in Citroën. V grafu sem upošteval samo znamke ki imajo vsaj 50 vnosov, ker imamo veliko znamk s pod 50-imi vnosi in bi težko razbrali podatke iz grafa.
 
