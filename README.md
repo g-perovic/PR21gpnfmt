@@ -159,6 +159,77 @@ b.nlargest(10, "Odstotek brezhibnih")
 
 Poizvedba 10 najbolj breizhibnih znamk osebnih avtomobilov. Odstotek breizhibnosti je pa je odstotek brizhibno opravljenih tehničnih pregledov vsake znamke. Upoštevali smo le znamke ki imajo vsaj 50 vnosov.
 
+#### - Število tehničnih pregledov po mesecih
+```python
+test = podatki["DATUM_PREGLEDA"].to_dict()
 
+temp = {}
+
+for k,v in test.items(): 
+    s = v.split(".")[1]
+    if s in temp.keys():
+        temp[s] += 1
+    else:
+        temp[s] = 1
+    
+
+temp = dict(sorted(temp.items()))
+
+mesci = ["januan","februar","marec","april","maj","junij","julij","avgust","september","oktober","november","december"]
+
+plt.figure(figsize=(25, 3))
+plt.bar(mesci, temp.values(), align='center', width=0.3)
+```
+![image](https://user-images.githubusercontent.com/64787664/163156762-796dd467-2714-4426-92f6-76fed35f417c.png)
+
+Iz grafa vidimo, da se največ tehničnih pregledov opravlja marca in maja.
+
+#### - Avtomobili z povprečno največ prevoženih kilometrov v dnevi
+```python
+def days_between(dR, dP):
+    dR = datetime.strptime(dR, "%d.%m.%Y")
+    dP = datetime.strptime(dP, "%d.%m.%Y")
+    return ((dP - dR).days)
+
+
+podatki = pd.read_csv("podatki.csv", delimiter=";", low_memory=False)
+
+
+#podatki[["DATUM_PRVE_REGISTRACIJE_SLO","DATUM_PREGLEDA","PREVOZENI_KILOMETRI"]]
+
+array = {}
+amd = 0
+
+for ind in podatki.index:
+    datum_reg = podatki['DATUM_PRVE_REGISTRACIJE_SLO'][ind]
+    datum_preg = podatki['DATUM_PREGLEDA'][ind]
+    kil = podatki['PREVOZENI_KILOMETRI'][ind]
+
+    if math.isnan(kil) or kil > 1000000:
+        continue
+
+    if isinstance(datum_preg,str) and isinstance(datum_reg,str) :
+        dnevi = days_between(datum_reg, datum_preg)
+        if dnevi <= 0:
+            continue
+        else:
+            temp = kil / dnevi
+
+        array[ind] = temp
+
+
+my_keys = sorted(array, key=array.get, reverse=True)[:5]
+#print(my_keys)
+for i in my_keys:
+    print(podatki.loc[[i]][["ZNAMKA", 'DATUM_PRVE_REGISTRACIJE_SLO', 'DATUM_PREGLEDA', 'PREVOZENI_KILOMETRI']], array[i])
+```
+**5 vozil z najboljšim povprečjam prevoženih kilometrov na dan**
+|ZNAMKA|DATUM PRVE REGISTRACIJE|DATUM PREGLEDA|PREVOZENI KILOMETRI|POVPREČNO KM NA DAN|
+|------|---------------------------|--------------|-------------------|-------------------|
+|SEAT|29.08.2020|26.08.2021|212577.0 5|587.22|
+|FIAT|13.11.2020|15.11.2021|152255.0|414.86|
+|TOYOTA|1.04.2019|29.03.2021|201574.0|276.88|
+|MERCEDES BENZ|5.10.2010|30.09.2021|992611.0|247.34|
+|BMW|1.03.2018|5.03.2021|265555.0|241.41|
 
 
