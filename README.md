@@ -235,10 +235,7 @@ for i in my_keys:
 
 
 
-![image](https://user-images.githubusercontent.com/64787664/168559104-dc1071a6-aa28-4d55-87f9-0a5667d515e8.png)
-![image](https://user-images.githubusercontent.com/64787664/168562516-f919e0d7-83a7-4374-945e-04ec4e29b9b5.png)
-![image](https://user-images.githubusercontent.com/64787664/168566444-8bc289f6-fa17-4c78-b208-d06bd347fa1a.png)
-![image](https://user-images.githubusercontent.com/64787664/168567593-885d95bc-ffba-4ecb-a58a-7a8895b4f075.png)
+
 
 
 
